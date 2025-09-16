@@ -1,0 +1,236 @@
+/* frontend/src/pages/ClientesPage.module.css */
+.container {
+  padding: 1rem;
+  height: calc(100vh - 4rem); /* Altura total menos o padding */
+  display: flex;
+  flex-direction: column;
+}
+
+.container h1 {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.searchBar {
+  margin-bottom: 1.5rem;
+}
+
+.searchBar input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: 300px 1fr; /* Coluna fixa para a lista, resto para os detalhes */
+  gap: 2rem;
+  flex-grow: 1;
+  overflow: hidden; /* Evita que o layout quebre */
+}
+
+.listaClientes {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  overflow-y: auto; /* Adiciona scroll se a lista for grande */
+}
+
+.listaClientes ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listaClientes li {
+  padding: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.listaClientes li:hover {
+  background-color: #f7fafc;
+}
+
+.listaClientes li.ativo {
+  background-color: #ebf8ff;
+  border-left: 4px solid #3182ce;
+}
+
+.nomeCliente {
+  display: block;
+  font-weight: 600;
+}
+
+.cpfCliente {
+  display: block;
+  font-size: 0.875rem;
+  color: #718096;
+}
+
+.detalhesCliente {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #a0aec0;
+}
+
+/* Reutilizando estilos que já temos */
+.resultsContainer h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.summaryCard {
+  background-color: #f7fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.summaryCard h4 {
+  font-size: 1rem;
+  color: #718096;
+  margin-bottom: 0.5rem;
+}
+
+.summaryCard p {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.detalhesCliente h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 1.5rem;
+}
+
+.extratoTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.extratoTable th, .extratoTable td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.extratoTable th {
+  background-color: #f7fafc;
+}
+
+.credito {
+  color: #38a169;
+  font-weight: bold;
+}
+
+.debito {
+  color: #e53e3e;
+  font-weight: bold;
+}
+
+/* Adicione no final de ClientesPage.module.css */
+.spinnerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 2rem;
+}
+
+/* --- MEDIA QUERY PARA RESPONSIVIDADE --- */
+@media (max-width: 992px) {
+  .container {
+    margin-top: 50px; 
+  }
+
+  .mainGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .listaClientes {
+    max-height: 300px; 
+    margin-bottom: 1.5rem;
+  }
+
+  .container {
+    height: auto; 
+  }
+  .detalhesCliente {
+    padding: 1rem;
+  }
+  .summaryGrid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .summaryCard {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+  .extratoTable th, .extratoTable td {
+    padding: 0.5rem;
+    font-size: 0.95rem;
+  }
+  .extratoTable {
+    width: 100%;
+    overflow-x: auto;
+    font-size: 0.95rem;
+  }
+  .container h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .searchBar input {
+    padding: 0.5rem;
+    font-size: 0.95rem;
+  }
+  .placeholder {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}
+/* Melhorias extras para telas muito pequenas */
+@media (max-width: 600px) {
+  .container {
+    padding: 0.5rem;
+  }
+  .detalhesCliente {
+    padding: 0.5rem;
+  }
+  .summaryCard {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .extratoTable th, .extratoTable td {
+    padding: 0.3rem;
+    font-size: 0.9rem;
+  }
+  .container h1 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+}
